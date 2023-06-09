@@ -12,6 +12,8 @@ The slides can be found [here(soon)].
 
 ## Source Code
 
+### Example 1: Matrix Multiplication
+
 The code included in this repository demonstrates the performance improvements of using GPU to accelerate the calculation of matrix multiplication.
 
 ```go
@@ -27,13 +29,13 @@ func Mul[T math.Type](m1, m2 math.Mat[T]) math.Mat[T]
 To run the demo code:
 
 ```
-go test -v
+go test -v -run=TestMul
 ```
 
 To run the benchmarks:
 
 ```
-go test -v -run=none -bench=. -timeout=1h | tee bench.txt
+go test -v -run=none -bench=BenchmarkMul -timeout=1h | tee bench.txt
 ```
 
 ```
@@ -69,6 +71,43 @@ The benchmark shows that the GPU version of matrix multiplication is ~950x faste
 
 Note that the code included in this repository is a tidy version that was written in Project [PolyRed](https://github.com/polyred/polyred).
 
+### Example 2: Image Processing
+
+The code included in this repository demonstrates the performance improvements of using GPU to accelerate image processing.
+
+```go
+package enhance
+
+// ImageGPU is a GPU version of Image.
+func ImageGPU(m *image.RGBA, params Params) *image.RGBA
+```
+
+To run the demo code:
+
+```
+go test -v -run=TestImageEnhance
+```
+
+| Original | Enhanced(CPU) | Enhanced(GPU) |
+| -------- | ------------- | ------------- |
+| ![](testdata/1.jpg) | ![](testdata/enhanced_cpu.jpg) | ![](testdata/enhanced_gpu.jpg) |
+
+To run the benchmarks:
+
+```
+go test -v -run=none -bench=BenchmarkImageEnhance -timeout=1h | tee bench2.txt
+```
+
+```
+$ benchstat bench2.txt
+name                time/op
+ImageEnhance/CPU-8   432ms ± 1%
+ImageEnhance/GPU-8  6.39ms ± 6%
+```
+
+The benchmark shows that the GPU version of matrix multiplication is ~64x faster than the CPU version
+
+Note that the code included in this repository is a tidy version that was written in Project [Enhance](https://github.com/changkun/enhance).
 
 ## License
 

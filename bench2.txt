@@ -1,0 +1,18 @@
+goos: darwin
+goarch: arm64
+pkg: changkun.de/x/gogpu
+BenchmarkImageEnhance
+BenchmarkImageEnhance/CPU
+BenchmarkImageEnhance/CPU-8         	       3	 436220556 ns/op
+BenchmarkImageEnhance/CPU-8         	       3	 430710556 ns/op
+BenchmarkImageEnhance/CPU-8         	       3	 429947097 ns/op
+BenchmarkImageEnhance/CPU-8         	       3	 430854014 ns/op
+BenchmarkImageEnhance/CPU-8         	       3	 433929667 ns/op
+BenchmarkImageEnhance/GPU
+BenchmarkImageEnhance/GPU-8         	     189	   6272964 ns/op
+BenchmarkImageEnhance/GPU-8         	     189	   6368472 ns/op
+BenchmarkImageEnhance/GPU-8         	     188	   6273407 ns/op
+BenchmarkImageEnhance/GPU-8         	     184	   6759055 ns/op
+BenchmarkImageEnhance/GPU-8         	     187	   6288938 ns/op
+PASS
+ok  	changkun.de/x/gogpu	22.743s

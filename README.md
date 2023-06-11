@@ -8,7 +8,10 @@ In the past decade, multi-core heterogeneous computing has gradually become main
 
 ## Slides
 
-The slides can be found [here(soon)].
+The slides can be found here:
+
+- [Chinese Version](./slides/ou2023gogpucn.pdf)
+- [English Version (soon)]
 
 ## Source Code
 
